@@ -30,6 +30,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull final TrackAdapter.ViewHolder holder, final   int position) {
+        //use the item of track and the position in list
         holder.bindData(tracks.get(position), position +1);
     }
 
@@ -48,6 +49,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.ViewHolder> 
         }
 
         void bindData(final Track item, final int position){
+            //fill the view elements
             String trackName = position + ". " + item.getName();
             txtTrackName.setText(trackName);
 

@@ -1,4 +1,4 @@
-package com.example.topcolombianartists;
+package com.example.topcolombianartists.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.topcolombianartists.ArtistAdapter;
+import com.example.topcolombianartists.R;
 import com.example.topcolombianartists.ViewModel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,12 +26,13 @@ public class MainActivity extends AppCompatActivity {
         rvArtistsList = findViewById(R.id.rvArtistsList);
         rvArtistsList.setLayoutManager(new LinearLayoutManager(this));
         artistAdapter = new ArtistAdapter(item -> {
+            //when pressed the item, change view whit artist name
             Intent intent = new Intent(MainActivity.this, TracksActivity.class);
             intent.putExtra("artist", item.getName());
             startActivity(intent);
         });
         rvArtistsList.setAdapter(artistAdapter);
-
+        //load the artist list from viewModel
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         mainViewModel.getArtists(getApplicationContext()).observe(this, artists -> {
             artistAdapter.setArtists(artists);

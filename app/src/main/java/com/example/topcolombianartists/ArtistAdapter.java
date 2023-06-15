@@ -40,6 +40,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull final ArtistAdapter.ViewHolder holder, final   int position) {
+        //use the item of artist and the position in list
         holder.bindData(artists.get(position), position+1);
     }
 
@@ -57,10 +58,10 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ViewHolder
             super(itemView);
             cardArtist = itemView.findViewById(R.id.cardArtist);
             txtArtistName = itemView.findViewById(R.id.txtArtistName);
-            
         }
 
         void bindData(final Artist item, final int position){
+            //fill the view elements
             String artistName = position + ". " + item.getName();
             txtArtistName.setText(artistName);
             cardArtist.setOnClickListener(v -> listener.onItemClick(item));
