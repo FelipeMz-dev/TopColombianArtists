@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TopArtistFromCountry</string>
+    <string name="artist_name">Artist name</string>
+    <string name="track_name">Track name</string>
+    <string name="activity_artist_information">Top de los 10 artistas más Populares en colombia</string>
+    <string name="activity_track_information">Top de las 5 canciones más Populares del artista</string>
+</resources>
